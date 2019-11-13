@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>UPSM</title>
+	<link rel="stylesheet" href="/css/bootstrap.css"/>
+	<link rel="stylesheet" href="/css/style.css"/>
+</head>
+
+<style type="text/css">
+  body{
+    background: url('/img/cat1.jpg');
+  }
+
+a, p, h2, h1, label, input{
+  color: white;
+}
+h3{
+  color: #33f51e;
+}
+
+</style>
+
+<body>
+<div class="container-fluid" id="main_body">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            {{#if user}}
+             <li role="presentation"><a href="/">Dash board</a></li>
+            <li role="presentation"><a href="/users/logout">Logout</a></li> 
+            {{else}}
+            <li role="presentation"><a href="/users/index">home</a></li>
+             <li role="presentation"><a href="/users/about">about</a></li>
+              <li role="presentation"><a href="/users/contact">contact</a></li>
+            <li role="presentation"><a href="/users/login">login</a></li>
+            <li role="presentation"><a href="/users/register">Register</a></li>
+            {{/if}}
+
+          </ul>
+        </nav>
+        <h3 style="color: white;">Upozila Primary School Management System</h3>
+      </div>
+
+            <div class="row">
+        <div class="col-lg-12">
+          {{#if success_msg}}
+            <div class="alert alert-success">{{success_msg}}</div>
+          {{/if}}
+
+          {{#if error_msg}}
+            <div class="alert alert-danger">{{error_msg}}</div>
+      {{/if}}
+
+          {{#if error}}
+            <div class="alert alert-danger">{{error}}</div>
+      {{/if}}
+          
+        </div>
+
+      </div>
+
+	<h1>School list</h1>
+
+	{{#each user_var}}
+	    <h3>{{this.name}}</h3>
+	  {{/each}}
+
+      <footer class="footer">
+          <center><p>&copy; 2016 login app, Inc.</p></center>
+        </footer>
+<!-- <p>This page has a light blue background color!</p> -->
+
+</body>
+</html>
